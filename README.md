@@ -1,5 +1,151 @@
 # goit-pycore-hw-04
 
+[*Українська версія*](#uk)
+<span id="en"></span>
+
+## Table of Contents
+
+1. [***""***](#task-1)
+2. [***""***](#task-2)
+3. [***""***](#task-3)
+4. [***""***](#task-4)
+
+---
+
+### Task 1
+
+**Develop the function `total_salary(path)` to analyze a file with developers' salaries.**
+
+#### Input data:
+- A text file where each line contains a developer's last name and their salary, separated by a comma, without spaces. For example:
+```python
+Alex Korp,3000
+Nikita Borisenko,2000
+Sitarama Raju,1000
+```
+
+#### Requirements:
+1. The function should take the file path as an argument `path`.
+2. Pay attention to the file's encoding when opening it.
+3. Calculate the total and average sums of the salaries.
+4. Return a tuple of two numbers: the total sum and the average salary.
+
+#### Recommendations:
+- Use the context manager `with` for safe file reading.
+- Apply the `split(',')` method to separate information in each line.
+- Handle potential errors when opening or reading the file.
+
+#### Evaluation Criteria:
+- The function must accurately determine the total and average sums.
+- There should be error handling for cases when the file is missing or corrupted.
+- The code must be clean, structured, and comprehensible.
+
+#### Example of usage:
+```python
+total, average = total_salary("path/to/salary_file.txt")
+print(f"Total salary sum: {total}, Average salary: {average}")
+```
+
+#### Expected result:
+```
+Total salary sum: 6000, Average salary: 2000
+```
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#завдання-1">Прочитати це солов'їною</a>
+  <a href="#table-of-contents">Return to Table of Contents</a>
+</div>
+
+---
+
+### Task 2
+
+**Develop the function `get_cats_info(path)` to read a file with data about cats.**
+
+#### Input data:
+- A text file where each line contains a unique cat identifier, its name, and age, separated by a comma. For example:
+```python
+60b90c1c13067a15887e1ae1,Tayson,3
+60b90c2413067a15887e1ae2,Vika,1
+60b90c2e13067a15887e1ae3,Barsik,2
+60b90c3b13067a15887e1ae4,Simon,12
+60b90c4613067a15887e1ae5,Tessi,5
+```
+
+#### Requirements:
+1. The function should take the file path as an argument `path`.
+2. The file contains data about cats with an identifier, name, and age.
+3. The function should return a list of dictionaries, each containing information about one cat.
+
+#### Recommendations:
+- Use the context manager `with` for safe file reading.
+- Consider the file encoding when opening it.
+- Apply the `split(',')` method to separate information in each line.
+- Create a dictionary with keys "id", "name", "age" for each record and add it to the return list.
+- Handle errors related to file access or reading.
+
+#### Evaluation Criteria:
+- The function must accurately process data and return the correct list of dictionaries.
+- Proper exception and error handling must be implemented.
+- The code should be clean, structured, and comprehensible.
+
+#### Example of usage:
+```python
+cats_info = get_cats_info("path/to/cats_file.txt")
+print(cats_info)
+```
+
+#### Expected result:
+```json
+[
+    {"id": "60b90c1c13067a15887e1ae1", "name": "Tayson", "age": "3"},
+    {"id": "60b90c2413067a15887e1ae2", "name": "Vika", "age": "1"},
+    {"id": "60b90c2e13067a15887e1ae3", "name": "Barsik", "age": "2"},
+    {"id": "60b90c3b13067a15887e1ae4", "name": "Simon", "age": "12"},
+    {"id": "60b90c4613067a15887e1ae5", "name": "Tessi", "age": "5"}
+]
+```
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#завдання-2">Прочитати це солов'їною</a>
+  <a href="#table-of-contents">Return to Table of Contents</a>
+</div>
+
+---
+
+### Task 3
+
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#завдання-3">Прочитати це солов'їною</a>
+  <a href="#table-of-contents">Return to Table of Contents</a>
+</div>
+
+---
+
+### Task 4
+
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#завдання-4">Прочитати це солов'їною</a>
+  <a href="#table-of-contents">Return to Table of Contents</a>
+</div>
+
+
+***
+***
+
+
+[*English Version*](#en)
+<span id="uk"></span>
+
+## Зміст
+1. [***"Середня та максимальна зарплата"***](#завдання-1)
+2. [***"Файл з даними про котів"***](#завдання-2)
+3. [***"Візуалізації структури директорії"***](#завдання-3)
+4. [***"Консольного бот-помічник"***](#завдання-4)
+---
+
 ### Завдання 1
 
 **Розробити функцію `total_salary(path)` для аналізу файлу з заробітними платами розробників.**
@@ -38,6 +184,12 @@ print(f"Загальна сума заробітної плати: {total}, Се
 ```
 Загальна сума заробітної плати: 6000, Середня заробітна плата: 2000
 ```
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#task-1">Read this in English</a>
+  <a href="#зміст">Повернутися до змісту</a>
+</div>
+
 ---
 
 ### Завдання 2
@@ -87,6 +239,12 @@ print(cats_info)
     {"id": "60b90c4613067a15887e1ae5", "name": "Tessi", "age": "5"}
 ]
 ```
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#task-2">Read this in English</a>
+  <a href="#зміст">Повернутися до змісту</a>
+</div>
+
 ---
 
 ### Завдання 3
@@ -136,6 +294,12 @@ python hw03.py /шлях/до/вашої/директорії
 скрипт повинен вивести схожу структуру:
 
 ![Приклад виводу скрипта](hw-04_3_example-1.png)
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#task-3">Read this in English</a>
+  <a href="#зміст">Повернутися до змісту</a>
+</div>
+
 ---
 ### Завдання 4
 
@@ -180,3 +344,8 @@ Enter a command: phone John
 Enter a command: exit
 Good bye!
 ```
+
+<div style="display: flex; justify-content: space-between; font-style: italic; font-size: smaller;">
+  <a href="#task-4">Read this in English</a>
+  <a href="#зміст">Повернутися до змісту</a>
+</div>
