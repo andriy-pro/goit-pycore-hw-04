@@ -1,9 +1,13 @@
+import re
+
+
 def total_salary(path: str) -> tuple:
     """
     Calculate the total and average salary from a file.
 
-    This function reads a file where each line consists of a developer's last name and their salary separated by a comma.
-    It handles various edge cases like empty lines, incorrect formats, and negative salaries.
+    This function reads a file where each line consists of a developer's name and
+    their salary separated by a comma. It handles various edge cases like empty lines,
+    incorrect formats and values.
 
     Parameters
     ----------
@@ -17,62 +21,56 @@ def total_salary(path: str) -> tuple:
 
     Examples
     --------
-    >>> total_salary("path/to/salary_file.txt")
-    (6000, 2000)
+    >>> total_salary("./tests/salary_file.txt")
+    (6000.00, 2000.00)
     """
-
+    separator = ','
     format_error_msg = "Line {line_number} does not match expected format:\n{line}\n"
     total_sum = 0
     count = 0
 
-    # Допоміжна функція, що перевіряє можливість конвертувати у тип 'float'
-    def is_valid_non_negative_float(value: any) -> bool:
+    remove_whitespaces = re.compile(r"\s+").sub
+
+    def is_non_negative_float(value: any) -> bool:
         """
-        Перевіряє, чи довільна змінна містить лише одну крапку і може бути конвертована у додатне число типу float.
+        Verify if a variable can be converted to a non-negative float.
 
         Parameters
         ----------
         value : any
-            Змінна, яку потрібно спробувати конвертувати до float.
+            The variable to be converted to float.
 
         Returns
         -------
         bool
-            Повертає True, якщо змінна має формат, який можна конвертувати до невід'ємного float.
+            Returns True if the variable can be converted to a non-negative float, otherwise False.
         """
-        # Конвертуємо у рядок
-        value = str(value)
-
-        # Перевіряємо, що в рядку лише одна крапка і що решта символів - цифри
-        if value.count('.') == 1 and all(c.isdigit() or c == '.' for c in value):
-            try:
-                float(value)  # Спроба конвертації в float
-                return True
-            except ValueError:
-                return False
-        return False
+        try:
+            f_value = float(value)
+            return f_value >= 0
+        except ValueError:
+            return False
 
     try:
         with open(path, 'r', encoding='utf-8') as file:
             for line_number, line in enumerate(file, 1):
-                if not line.strip():  # Якщо рядок пустий, пропускаємо і переходимо до наступного
+                if not line.strip():  # Skip empty lines
                     continue
 
-                parts = line.strip().split(',')
-                len_parts = len(parts)
-
-                if 1 < len_parts < 4:
-                    part_two = parts[1].strip()
-                    if not(part_two.isdigit() or is_valid_non_negative_float(part_two)):
+                parts = line.strip().split(separator)
+                if 1 < len(parts) < 4:
+                    part_two = remove_whitespaces("", parts[1].strip())
+                    if not is_non_negative_float(part_two):
                         print(format_error_msg.format(line_number=line_number, line=line))
                         continue
-                    if len_parts == 2: # Найпростіший випадок, вірний формат рядка
+
+                    if len(parts) == 2: # The simplest case, correct string format
                         salary = float(part_two)
                     else:
-                        part_three = parts[2].strip()
+                        part_three = remove_whitespaces("", parts[2].strip())
                         if part_two.isdigit() and part_three.isdigit():
-                            # 2-га та 3-тя частини є цілими числами, розділеними комою, тому припускаємо,
-                            # що це має бути число типу float
+                        # The 2nd and 3rd parts are integers separated by a separator (comma),
+                        # thus we assume these are 2 parts of a float number
                             salary = float(f"{part_two}.{part_three}")
                         else:
                             print(format_error_msg.format(line_number=line_number, line=line))
@@ -84,11 +82,11 @@ def total_salary(path: str) -> tuple:
                 total_sum += salary
                 count += 1
 
-        if count == 0:
-            return (0, 0)  # Avoid division by zero if no valid entries were found
+        if count == 0: # Avoid division by zero if no valid entries were found
+            return ('0.00', '0.00')
 
         average_salary = total_sum / count
-        return round(total_sum, 2), round(average_salary, 2)
+        return f"{round(total_sum, 2):.2f}", f"{round(average_salary, 2):.2f}"
 
     except FileNotFoundError:
         print(f"Error: The file does not exist:\n{path}")
@@ -99,5 +97,7 @@ def total_salary(path: str) -> tuple:
     except Exception as e:
         print(f"Error: An unexpected error occurred:\n{e}")
 
-total, average = total_salary("./_tests/salary_file_1.txt")
-print(f"Total salary sum: {total}\nAverage salary: {average}")
+
+if __name__ == "__main__":
+    total, average = total_salary("./tests/salary_file.txt")
+    print(f"Total salary sum: {total}\nAverage salary: {average}")
