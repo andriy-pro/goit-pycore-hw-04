@@ -1,3 +1,6 @@
+import json
+
+
 def get_cats_info(path):
     """
     Reads a text file containing data about cats and returns a list of dictionaries
@@ -26,25 +29,41 @@ def get_cats_info(path):
         {"id": "60b90c4613067a15887e1ae5", "name": "Tessi", "age": "5"}
     ]
     """
+
+    separator = ','
+    format_error_msg = "ERROR: {err}Line {line_number} does not match expected format:\n{line}\n"
     cat_list = []
+
     try:
         with open(path, 'r', encoding='utf-8') as file:
-            for line in file:
-                parts = line.strip().split(',')
+            for line_number, line in enumerate(file, 1):
+                if not line.strip():  # Skip empty lines
+                    continue
+
+                parts = line.strip().split(separator)
                 if len(parts) == 3:
+                    if not parts[2].isdigit():
+                        err = 'The age of the cat must be provided as a non-negative integer.\n'
+                        print(format_error_msg.format(err=err, line_number=line_number, line=line))
+                        continue
                     cat_dict = {'id': parts[0], 'name': parts[1], 'age': parts[2]}
                     cat_list.append(cat_dict)
                 else:
-                    raise ValueError(f"Line format error: {line.strip()}")
-    except FileNotFoundError:
-        print(f"Error: The file '{path}' does not exist.")
-    except PermissionError:
-        print(f"Error: No permission to read the file '{path}'.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-    
-    return cat_list
+                    print(format_error_msg.format(err='',line_number=line_number, line=line))
+                    continue
 
-# The function call is commented out to comply with the instructions not to run it directly here
-# cats_info = get_cats_info("path/to/cats_file.txt")
-# print(cats_info)
+    except FileNotFoundError:
+        print(f"Error: The file does not exist:\n{path}")
+    except PermissionError:
+        print(f"Error: No permission to access the file:\n{path}")
+    except OSError as e:
+        print(f"Error: An OS error occurred while opening the file:\n{e.strerror}")
+    except Exception as e:
+        print(f"Error: An unexpected error occurred:\n{e}")
+
+    return json.dumps(cat_list, indent=4)
+
+
+if __name__ == "__main__":
+    cats_info = get_cats_info("./tests/cats_file.txt")
+    print(cats_info)

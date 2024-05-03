@@ -24,12 +24,12 @@ def total_salary(path: str) -> tuple:
     >>> total_salary("./tests/salary_file.txt")
     (6000.00, 2000.00)
     """
+
     separator = ','
-    format_error_msg = "Line {line_number} does not match expected format:\n{line}\n"
+    format_error_msg = "ERROR: Line {line_number} does not match expected format:\n{line}\n"
+    remove_whitespaces = re.compile(r"\s+").sub
     total_sum = 0
     count = 0
-
-    remove_whitespaces = re.compile(r"\s+").sub
 
     def is_non_negative_float(value: any) -> bool:
         """
