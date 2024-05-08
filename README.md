@@ -53,6 +53,15 @@ print(f"Total salary sum: {total}, Average salary: {average}")
 Total salary sum: 6000, Average salary: 2000
 ```
 
+### Features of this implementation:
+- **Enhanced file accessibility check:** The program not only inspects the presence of the input file but also verifies its accessibility, including handling system errors related to file access.
+- **Support for non-standard input data:** The function is adapted to handle files containing empty lines or lines filled only with whitespace characters.
+- **Unified error message template:** Using the `format_error_msg` template to standardize and simplify the modification of error messages, which helps ensure consistency of the messages and their easy reuse.
+- **Ignoring irrelevant lines:** The function can skip lines that do not meet the expected format, allowing users to leave comments or administrative information in the file. Users are notified about such lines with a message indicating the line number and its content.
+- **Tolerance to number formats:** The program can accept salaries in `float` format, even if specified with a comma instead of a dot, thus tolerating minor input errors.
+- **Result formatting:** The calculation result is returned in `float` format rounded to two decimal places, ensuring accuracy and convenience in displaying results (for example: "1000.00", "123.40").
+- **Handling of multi-digit numbers:** The function effectively processes multi-digit numbers using a space for digit separation, which is customary in Ukraine. However, it is not designed to process data where a dot is used to separate thousands (for example, "6.000"). A dot or comma is considered a sign separating the whole part from the fractional part (for example, "1200.50").
+
 [🇺🇦 *Прочитати це солов'їною*](#завдання-1) | [*Return to Table of Contents* 🔙](#en)
 
 ---
@@ -105,6 +114,13 @@ print(cats_info)
 ]
 ```
 
+### Features of this implementation:
+- **Line item count verification:** The function checks each line of the file to ensure it matches the expected number of elements. If the number of elements does not match, an appropriate message is displayed to the user, but the script continues processing subsequent lines.
+- **Cat age verification:** A special check ensures that the cat's age is a positive integer. Using the `.isdigit()` method effectively verifies this field, and in case of an error, the user receives relevant information, but the program continues to operate.
+- **JSON format output:** Thanks to the use of the `json` module, output in the terminal is structured in JSON format. This makes the data more organized and easier to analyze and process further.
+- **Ignoring empty lines:** The input file is checked for empty lines, which are automatically ignored, ensuring data cleanliness for processing.
+- **Enhanced file accessibility check:** The program not only inspects the presence of the input file but also verifies its accessibility, including handling system errors related to file access.
+
 [🇺🇦 *Прочитати це солов'їною*](#завдання-2) | [*Return to Table of Contents* 🔙](#en)
 
 ---
@@ -155,7 +171,21 @@ For a directory with the following structure
 ```
 the script should display a similar structure:
 
-![Приклад виводу скрипту](hw-04_3_example-1.png)
+![Example of script output](hw-04_3_example-1.png)
+
+### Features of this implementation:
+- **Strict command line argument checking:** The program ensures it is launched with the correct number of arguments.
+- **Existence and type verification of the path:** The program first checks whether the path exists and if it is a directory, ensuring errors related to incorrect input data are avoided.
+- **Sorting of objects:** All folders and files are sorted alphabetically before output, facilitating easier navigation in large directories.
+
+Additionally, an enhanced version of the solution ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py)) has been created, which, in addition to the features mentioned above, includes the following:
+- **Control over the number of elements:** A check has been added for the total number of files and directories in the specified folder. If the number exceeds the limit (default set to 100 items), the user is warned, and they can decide whether to continue running the program. This prevents potential overload during visualization of large directories.
+- **Display of the absolute path of the directory:** At the beginning of each visualization session, the program displays the absolute path to the root directory. This provides the user with more detailed information and helps avoid mistakes when working with complex paths or using the script in different parts of the file system.
+- **Graphical representation of the hierarchy with symbolic nuances:** Symbols are used to visually distinguish between directories and files (thicker lines for directories and thinner ones for files), as well as different symbols depending on whether an element is the last in the list. This enhances the visual understanding of the directory and file structure.
+
+Example output of the script [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
+
+![Example output of the script 'dir_structure_visualizer_v2'](hw-04_3_example-2.png)
 
 [🇺🇦 *Прочитати це солов'їною*](#завдання-3) | [*Return to Table of Contents* 🔙](#en)
 
@@ -208,9 +238,10 @@ Good bye!
 [🇺🇦 *Прочитати це солов'їною*](#завдання-4) | [*Return to Table of Contents* 🔙](#en)
 
 
-___
+
 ***
----
+***
+
 
 
 [🇬🇧 *Go to the English version*](#en)
@@ -263,7 +294,6 @@ print(f"Загальна сума заробітної плати: {total}, Се
 ```
 
 ### Особливості даної реалізації:
-
 - **Розширена перевірка доступності файлу:** Програма не лише інспектує наявність вхідного файлу, але й перевіряє можливість доступу до нього, включаючи обробку системних помилок, що стосуються доступу до файлу.
 - **Підтримка нестандартних вхідних даних:** Функція адаптована для обробки файлів, що містять пусті рядки або рядки, заповнені лише пробільними символами.
 - **Єдиний шаблон повідомлення про помилки:** Використання шаблону `format_error_msg` для уніфікації та полегшення корегування повідомлень про помилки, що допомагає забезпечувати однаковість повідомлень та їх легке повторне використання.
@@ -326,10 +356,8 @@ print(cats_info)
 
 Ось оформлений звіт про особливості реалізації вашого завдання, представлений у форматі Markdown для кращої структуризації і читабельності:
 
----
-
 ### Особливості даної реалізації:
-- **Перевірка кількості елементів у рядку:** Система перевіряє кожен рядок файлу на відповідність очікуваній кількості елементів. Якщо кількість елементів не збігається, користувачу виводиться відповідне повідомлення, але скрипт продовжує обробку наступних рядків.
+- **Перевірка кількості елементів у рядку:** Функція перевіряє кожен рядок файлу на відповідність очікуваній кількості елементів. Якщо кількість елементів не збігається, користувачу виводиться відповідне повідомлення, але скрипт продовжує обробку наступних рядків.
 - **Перевірка віку кота:** Реалізована спеціальна перевірка, що вік кота є цілим додатнім числом. Використання методу `.isdigit()` дозволяє ефективно перевірити це поле, і у разі помилки користувач отримує відповідну інформацію, але програма продовжує роботу.
 - **Виведення інформації у форматі JSON:** Завдяки використанню модуля `json`, вивід інформації у термінал відбувається у структурованому json-форматі. Це робить дані більш організованими та легкими для аналізу та подальшої обробки.
 - **Ігнорування пустих рядків:** Вхідний файл перевіряється на наявність пустих рядків, які автоматично ігноруються, що дозволяє забезпечити чистоту даних для обробки.
@@ -386,6 +414,20 @@ python hw03.py /шлях/до/вашої/директорії
 скрипт повинен вивести схожу структуру:
 
 ![Приклад виводу скрипту](hw-04_3_example-1.png)
+
+### Особливості даної реалізації:
+- **Сувора перевірка аргументів командного рядка:** Програма контролює, чи вона була запущена з коректною кількістю аргументів.
+- **Перевірка існування та типу шляху:** Програма спочатку перевіряє чи шлях існує та чи це директорія, забезпечуючи уникнення помилок, пов'язаних з неправильними вхідними даними.
+- **Сортування об'єктів:** Усі теки та файли сортуються за алфавітом перед виведенням, що сприяє кращому орієнтуванню у великих директоріях.
+
+Крім того, була створена покращена версія рішення ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py)), що додатково до описаних вище  особливостей, містить наступні:
+- **Контроль за кількістю елементів:** Додано перевірку загальної кількості файлів та директорій у вказаній теці. Якщо кількість перевищує ліміт (стандартно встановлено в 100 елементів), користувачу видається попередження, і він має змогу вирішити, чи продовжувати виконання програми. Це запобігає можливому перенавантаженню при візуалізації великих директорій.
+- **Відображення абсолютного шляху директорії:** На початку кожної сесії візуалізації програма виводить абсолютний шлях до кореневої директорії. Це забезпечує користувача більш детальною інформацією і допомагає уникнути помилок при роботі зі складними шляхами або при використанні скрипту в різних частинах файлової системи.
+- **Графічне зображення ієрархії з символьними нюансами:** Використовуються символи для візуального розділення директорій та файлів (товсті лінії для директорій та тонші для файлів), а також різні символи в залежності від того, чи елемент є останнім у списку. Це сприяє кращому візуальному розумінню структури директорій та файлів.
+
+Приклад виводу скрипту [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
+
+![Приклад виводу скрипту 'dir_structure_visualizer_v2'](hw-04_3_example-2.png)
 
 [🇬🇧 *Read this in English*](#task-3) | [*Повернутися до змісту* 🔙](#uk)
 
