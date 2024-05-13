@@ -77,5 +77,7 @@ def main():
     print_item('', '', f'📦 {directory_path.resolve()}', Fore.BLUE)
     visualize_directory_structure(directory_path)
     print()
+
+
 if __name__ == "__main__":
     main()

@@ -53,7 +53,7 @@ print(f"Total salary sum: {total}, Average salary: {average}")
 Total salary sum: 6000, Average salary: 2000
 ```
 
-### Features of this implementation:
+### Features of [this implementation](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
 - **Enhanced file accessibility check:** The program not only inspects the presence of the input file but also verifies its accessibility, including handling system errors related to file access.
 - **Support for non-standard input data:** The function is adapted to handle files containing empty lines or lines filled only with whitespace characters.
 - **Unified error message template:** Using the `format_error_msg` template to standardize and simplify the modification of error messages, which helps ensure consistency of the messages and their easy reuse.
@@ -114,7 +114,7 @@ print(cats_info)
 ]
 ```
 
-### Features of this implementation:
+### Features of [this implementation](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/get_cats_info.py):
 - **Line item count verification:** The function checks each line of the file to ensure it matches the expected number of elements. If the number of elements does not match, an appropriate message is displayed to the user, but the script continues processing subsequent lines.
 - **Cat age verification:** A special check ensures that the cat's age is a positive integer. Using the `.isdigit()` method effectively verifies this field, and in case of an error, the user receives relevant information, but the program continues to operate.
 - **JSON format output:** Thanks to the use of the `json` module, output in the terminal is structured in JSON format. This makes the data more organized and easier to analyze and process further.
@@ -173,17 +173,17 @@ the script should display a similar structure:
 
 ![Example of script output](hw-04_3_example-1.png)
 
-### Features of this implementation:
+### Features of this implementation ([Ver. 1](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer.py), [Ver. 2](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py)):
 - **Strict command line argument checking:** The program ensures it is launched with the correct number of arguments.
 - **Existence and type verification of the path:** The program first checks whether the path exists and if it is a directory, ensuring errors related to incorrect input data are avoided.
 - **Sorting of objects:** All folders and files are sorted alphabetically before output, facilitating easier navigation in large directories.
 
-Additionally, an enhanced version of the solution ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py)) has been created, which, in addition to the features mentioned above, includes the following:
+Additionally, an enhanced version of the solution ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py)) has been created, which, in addition to the features mentioned above, includes the following:
 - **Control over the number of elements:** A check has been added for the total number of files and directories in the specified folder. If the number exceeds the limit (default set to 100 items), the user is warned, and they can decide whether to continue running the program. This prevents potential overload during visualization of large directories.
 - **Display of the absolute path of the directory:** At the beginning of each visualization session, the program displays the absolute path to the root directory. This provides the user with more detailed information and helps avoid mistakes when working with complex paths or using the script in different parts of the file system.
 - **Graphical representation of the hierarchy with symbolic nuances:** Symbols are used to visually distinguish between directories and files (thicker lines for directories and thinner ones for files), as well as different symbols depending on whether an element is the last in the list. This enhances the visual understanding of the directory and file structure.
 
-Example output of the script [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
+Example output of the script [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py):
 
 ![Example output of the script 'dir_structure_visualizer_v2'](hw-04_3_example-2.png)
 
@@ -234,6 +234,16 @@ Enter a command: phone John
 Enter a command: exit
 Good bye!
 ```
+
+### Features of [this implementation](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/assistant_bot.py):
+- **Command Dictionary:** A dictionary of available commands is used for command processing, which helps avoid numerous `if-elif-else` conditional statements, ensuring more readable and neat code. This also makes the application easier to scale.
+- **Existing Contact Check in `add_contact`:** The function checks if a contact with the same name already exists and, if so, outputs an appropriate message.
+- **New Number Check in `change_contact`:** The function verifies whether the new number matches the already stored contact number. If they match, an appropriate message is displayed.
+- **User-Friendly Interface:** The program outputs detailed error messages in case of incorrect command or argument input, helping the user quickly correct mistakes.
+- **Colored Output:** The `colorama` library is used for colored message output, improving readability and the visual perception of information by the user.
+- **Banner and Program Description:** At program startup, an ASCII banner generated using the `patorjk.com` service is displayed, adding aesthetic appeal. Below the banner, a brief program description and command usage examples are provided to facilitate getting started.
+- **Additional Exit Commands:** In addition to the `quit` and `exit` commands, a `close` command has been added for user convenience.
+- **`help` command:** Added the `help` command that displays information about available commands and usage examples. This allows users to quickly familiarize themselves with the bot's functionality and learn how to use each command.
 
 [🇺🇦 *Прочитати це солов'їною*](#завдання-4) | [*Return to Table of Contents* 🔙](#en)
 
@@ -293,7 +303,7 @@ print(f"Загальна сума заробітної плати: {total}, Се
 Загальна сума заробітної плати: 6000, Середня заробітна плата: 2000
 ```
 
-### Особливості даної реалізації:
+### Особливості [даної реалізації](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
 - **Розширена перевірка доступності файлу:** Програма не лише інспектує наявність вхідного файлу, але й перевіряє можливість доступу до нього, включаючи обробку системних помилок, що стосуються доступу до файлу.
 - **Підтримка нестандартних вхідних даних:** Функція адаптована для обробки файлів, що містять пусті рядки або рядки, заповнені лише пробільними символами.
 - **Єдиний шаблон повідомлення про помилки:** Використання шаблону `format_error_msg` для уніфікації та полегшення корегування повідомлень про помилки, що допомагає забезпечувати однаковість повідомлень та їх легке повторне використання.
@@ -356,7 +366,7 @@ print(cats_info)
 
 Ось оформлений звіт про особливості реалізації вашого завдання, представлений у форматі Markdown для кращої структуризації і читабельності:
 
-### Особливості даної реалізації:
+### Особливості [даної реалізації](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/get_cats_info.py):
 - **Перевірка кількості елементів у рядку:** Функція перевіряє кожен рядок файлу на відповідність очікуваній кількості елементів. Якщо кількість елементів не збігається, користувачу виводиться відповідне повідомлення, але скрипт продовжує обробку наступних рядків.
 - **Перевірка віку кота:** Реалізована спеціальна перевірка, що вік кота є цілим додатнім числом. Використання методу `.isdigit()` дозволяє ефективно перевірити це поле, і у разі помилки користувач отримує відповідну інформацію, але програма продовжує роботу.
 - **Виведення інформації у форматі JSON:** Завдяки використанню модуля `json`, вивід інформації у термінал відбувається у структурованому json-форматі. Це робить дані більш організованими та легкими для аналізу та подальшої обробки.
@@ -415,17 +425,17 @@ python hw03.py /шлях/до/вашої/директорії
 
 ![Приклад виводу скрипту](hw-04_3_example-1.png)
 
-### Особливості даної реалізації:
+### Особливості даної реалізації ([версія 1](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer.py), [версія 2](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py)):
 - **Сувора перевірка аргументів командного рядка:** Програма контролює, чи вона була запущена з коректною кількістю аргументів.
 - **Перевірка існування та типу шляху:** Програма спочатку перевіряє чи шлях існує та чи це директорія, забезпечуючи уникнення помилок, пов'язаних з неправильними вхідними даними.
 - **Сортування об'єктів:** Усі теки та файли сортуються за алфавітом перед виведенням, що сприяє кращому орієнтуванню у великих директоріях.
 
-Крім того, була створена покращена версія рішення ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py)), що додатково до описаних вище  особливостей, містить наступні:
+Крім того, була створена покращена версія рішення ([ *dir_structure_visualizer_v2.py* ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py)), що додатково до описаних вище  особливостей, містить наступні:
 - **Контроль за кількістю елементів:** Додано перевірку загальної кількості файлів та директорій у вказаній теці. Якщо кількість перевищує ліміт (стандартно встановлено в 100 елементів), користувачу видається попередження, і він має змогу вирішити, чи продовжувати виконання програми. Це запобігає можливому перенавантаженню при візуалізації великих директорій.
 - **Відображення абсолютного шляху директорії:** На початку кожної сесії візуалізації програма виводить абсолютний шлях до кореневої директорії. Це забезпечує користувача більш детальною інформацією і допомагає уникнути помилок при роботі зі складними шляхами або при використанні скрипту в різних частинах файлової системи.
 - **Графічне зображення ієрархії з символьними нюансами:** Використовуються символи для візуального розділення директорій та файлів (товсті лінії для директорій та тонші для файлів), а також різні символи в залежності від того, чи елемент є останнім у списку. Це сприяє кращому візуальному розумінню структури директорій та файлів.
 
-Приклад виводу скрипту [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/total_salary.py):
+Приклад виводу скрипту [dir_structure_visualizer_v2.py ](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/dir_structure_visualizer_v2.py):
 
 ![Приклад виводу скрипту 'dir_structure_visualizer_v2'](hw-04_3_example-2.png)
 
@@ -475,5 +485,15 @@ Enter a command: phone John
 Enter a command: exit
 Good bye!
 ```
+
+### Особливості [даної реалізації](https://github.com/andriy-pro/goit-pycore-hw-04/blob/main/src/assistant_bot.py):
+- **Словник команд:** Для обробки команд використовується словник доступних команд, що допомагає уникнути великої кількості умовних операторів `if-elif-else`, забезпечуючи більш читабельний і охайний код. Це також полегшує масштабування додатка.
+- **Перевірка існуючих контактів у `add_contact`:** Функція перевіряє, чи вже існує контакт з таким ім'ям, і якщо так, виводить відповідне повідомлення.
+- **Перевірка нових номерів у `change_contact`:** Функція перевіряє, чи новий номер не співпадає з вже збереженим номером контакту. У випадку співпадіння виводиться відповідне повідомлення.
+- **Дружній інтерфейс:** Програма виводить детальні повідомлення про помилки у випадку некоректного вводу команди або аргументів, що сприяє швидкому виправленню помилок користувачем.
+- **Кольоровий вивід:** Для кольорового виводу повідомлень використовується бібліотека `colorama`, що покращує читабельність та візуальне сприйняття інформації користувачем.
+- **Банер і опис програми:** При запуску програми виводиться ASCII-банер, згенерований за допомогою сервісу `patorjk.com`, що додає естетичної привабливості. Під банером виводиться короткий опис програми та приклади використання команд для полегшення початку роботи.
+- **Додаткові команди для завершення роботи:** Окрім команд `quit` та `exit`, додана команда `close` для зручності користувача.
+- **Команда `help`:** Додана команда `help`, яка виводить інформацію про доступні команди та приклади використання. Це дозволяє користувачам швидко ознайомитися з функціональністю бота та дізнатися, як використовувати кожну команду.
 
 [🇬🇧 *Read this in English*](#task-4) | [*Повернутися до змісту* 🔙](#uk)
